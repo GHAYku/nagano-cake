@@ -1,0 +1,15 @@
+<%= attachment_image_tag @item, :image, format: 'jpeg', fallback: "no_image.jpg", size: "40x40" %>
+
+ <%= @item.name%>
+ <%= @item.introduction %>
+ <%= @item.price %>
+ <%= (@item.price.to_i * 1.1).floor %>
+ <%= @item.genre.name %>
+
+ <% if @item.is_active == true %>
+  販売中
+ <% elsif @item.is_active == false %>
+  販売停止中
+ <% end %>
+
+ <%= link_to "編集する", edit_admin_item_path(@item.id) %>

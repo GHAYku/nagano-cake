@@ -1,0 +1,7 @@
+
+<%= form_with model: @item, url: admin_items_path,  local:true do |f| %>
+
+  <%= render 'itemform', f: f %>
+  <%= f.submit '新規登録' %>
+
+<% end %>

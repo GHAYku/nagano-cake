@@ -1,0 +1,15 @@
+<% @items.each do |item| %>
+
+ <%= item.id %>
+ <%= link_to admin_item_path(item.id) do%>
+  <%= item.name %>
+ <% end %> 
+ <%= item.price %>
+ <%= item.genre.name %>
+ <% if item.is_active == true %>
+  販売中
+ <% elsif item.is_active == false %>
+  販売停止中
+ <% end %>
+<% end %>
+<%= paginate @items %>
