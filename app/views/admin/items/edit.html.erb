@@ -1,6 +1,13 @@
-<%= form_with model: @item, url: admin_item_path, local:true do |f| %>
-
- <%= render 'itemform', f: f %>
- <%= f.submit '変更を保存' %>
-
-<% end %>
+<h3 class="offset-2 text title-sub-text">商品編集</h3>
+<div class="container">
+ <%= form_with model: @item, url: admin_item_path, local:true do |f| %>
+  <%= render 'itemform', f: f %>
+    <tr>
+     <th></th>
+      <td>
+       <%= f.submit "変更を保存", class: "btn btn-success mr-4 col-2" %>
+      </td>
+    </tr>
+   </table>
+  <% end %>
+</div>

@@ -1,11 +1,32 @@
-  <%= f.label :image, '商品画像' %>
-  <%= f.attachment_field :image %>
-  <%= f.label :name, '商品名' %>
-  <%= f.text_field :name %>
-  <%= f.label :introduction, '商品説明' %>
-  <%= f.text_area :introduction %>
-  <%= f.label :genre,"ジャンル" %>
-　<%= f.collection_select :genre_id, Genre.all, :id, :name, include_blank: "選択して下さい" %>
-  <%= f.label :price, '税抜き価格' %>
-  <%= f.text_field :price %>
-  <%= f.select :is_active ,[['販売中',true],['販売停止中',false]] %>
+   <div class="col-12">
+    <table class="table table-borderless">
+     <tr>
+       <th>商品画像</th>
+       <td><%= f.attachment_field :image%></td>
+     </tr>
+     <tr>
+      <th>商品名</th>
+      <td><%= f.text_field :name %></td>
+     </tr>
+     <tr>
+      <th>商品説明</th>
+      <td><%= f.text_area :introduction%></td>
+     </tr>
+     <tr>
+      <th>ジャンル</th>
+    <td><%= f.collection_select :genre_id, Genre.all, :id, :name, include_blank: "選択して下さい"%></td>
+   </tr>
+   <tr>
+      <th>価格</th>
+      <td><%= f.text_field :price%></td>
+     </tr>
+     <tr>
+      <th>ステータス</th>
+      <td>
+       <%= f.radio_button :is_active, true %>
+        <label>販売中</label>
+       <%= f.radio_button :is_active, false %>
+        <label>売り切れ</label>
+      </td>
+     </tr>
+

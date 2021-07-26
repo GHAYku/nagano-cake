@@ -1,0 +1,10 @@
+<% @orders.each do |order| %>
+ <%= link_to admin_order_path do%>
+  <%= order.created_at %>
+ <% end %>
+ <%= order.last_name + order.first_name %>
+
+ <%= order.order_detail.sum(:amount) %>
+ <%= order.status %>
+<% end %>
+<%= paginate  @orders %>
