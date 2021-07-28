@@ -1,32 +1,30 @@
-   <div class="col-12">
-    <table class="table table-borderless">
-     <tr>
-       <th>商品画像</th>
-       <td><%= f.attachment_field :image%></td>
-     </tr>
-     <tr>
-      <th>商品名</th>
-      <td><%= f.text_field :name %></td>
-     </tr>
-     <tr>
-      <th>商品説明</th>
-      <td><%= f.text_area :introduction%></td>
-     </tr>
-     <tr>
-      <th>ジャンル</th>
-    <td><%= f.collection_select :genre_id, Genre.all, :id, :name, include_blank: "選択して下さい"%></td>
-   </tr>
-   <tr>
-      <th>価格</th>
-      <td><%= f.text_field :price%></td>
-     </tr>
-     <tr>
-      <th>ステータス</th>
-      <td>
-       <%= f.radio_button :is_active, true %>
-        <label>販売中</label>
-       <%= f.radio_button :is_active, false %>
-        <label>売り切れ</label>
-      </td>
-     </tr>
+<div class="row mt-5 ">
+ <label class="col-md-2 mr-2">商品画像</label>
+ <%= f.attachment_field :image, class:"col-md-4" %>
+</div>
+<div class="row mt-2 ">
+  <label class="col-md-2 mr-2">商品名</label>
+  <%= f.text_field :name, class:"col-md-3" %>
+</div>
+<div class="row mt-3">
+  <label class="col-md-2 mr-2">商品説明<br><br><br><br></label>
+  <%= f.text_area :introduction, class:"col-md-3" %>
+</div>
+<div class="row mt-2">
+  <label class="col-md-2 mr-2">ジャンル</label>
+  <%= f.collection_select :genre_id, Genre.all, :id, :name, include_blank: "選択して下さい", class:"col-md-4" %>
+</div>
+<div class="row mt-2">
+  <label class="col-md-2 mr-2">価格</label>
+  <%= f.text_field :price, class:"col-md-3 mr-1" %> 円
+</div>
+<div class="row mt-2">
+  <label class="col-md-2 mr-2">ステータス</label>
+  <div class="col-md-3">
+    <%= f.radio_button :is_active, true %>
+    <label>販売中</label>
+    <%= f.radio_button :is_active, false %>
+    <label>販売停止中</label>
+  </div>
+</div>
 

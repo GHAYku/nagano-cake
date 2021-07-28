@@ -1,15 +1,43 @@
-<%= attachment_image_tag @item, :image, format: 'jpeg', fallback: "no_image.jpg", size: "40x40" %>
+<h3 class="offset-2 text title-sub-text">商品詳細</h3>
+<div class="container">
+ <div class = "row">
+  <div class="col-4">
+   <%= attachment_image_tag @item, :image, format: 'jpeg', fallback: "no_image.jpg", size: "160x160" %>
+  </div>
+  <div class="col-8">
+   <table class="table table-borderless">
+     <tr>
+      <td>商品名</td>
+      <td><%= @item.name%></td>
+     </tr>
+     <tr>
+      <td>商品説明</td>
+      <td><%= @item.introduction %></td>
+     </tr>
+     <tr>
+      <td>ジャンル</td>
+      <td><%= @item.genre.name %></td>
+     </tr>
+     <tr>
+      <td>税込価格</br>(税抜価格)</td>
+      <td>
+       <%= number_to_currency(@item.price * 1.1, :format => "%n%u", :unit => "", :precision => 0)  %>
+       (<%= number_to_currency(@item.price, :format => "%u%n", :unit => "", :precision => 0)%>)円
 
- <%= @item.name%>
- <%= @item.introduction %>
- <%= @item.price %>
- <%= (@item.price.to_i * 1.1).floor %>
- <%= @item.genre.name %>
-
- <% if @item.is_active == true %>
-  販売中
- <% elsif @item.is_active == false %>
-  販売停止中
- <% end %>
-
- <%= link_to "編集する", edit_admin_item_path(@item.id) %>
+      </td>
+     </tr>
+     <tr>
+      <td>販売ステータス</td>
+      <td>
+       <% if @item.is_active == true %>
+        <span class="text-success">販売中</span>
+       <% elsif @item.is_active == false %>
+        <span>売り切れ</span>
+       <% end %>
+      </td>
+     </tr>
+    </table>
+   <%= link_to "編集する", edit_admin_item_path(@item.id), class: "offset-3 btn btn-success" %>
+  </div>
+ </div>
+</div>

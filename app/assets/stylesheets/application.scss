@@ -18,3 +18,19 @@
 body  { font-family: "Sawarabi Gothic"; }
 header {font-family: 'Yomogi', cursive;}
 
+.top_image {
+  background-image: url('top.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.top{
+  width: 100%;
+  height: 350px;
+}
+
+.toptext{
+  font-family: 'Yomogi', cursive;
+  font-size: 20px;
+  font-weight: 900;
+}

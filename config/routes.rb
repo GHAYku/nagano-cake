@@ -3,7 +3,15 @@ Rails.application.routes.draw do
 
 
 
- devise_for :admins
+  scope module: :public do
+    root 'homes#top'
+    get 'homes/about'
+  end
+  
+  
+ devise_for :admins, path: 'admin',:controllers => {
+    :sessions => 'admin/sessions'
+  }
  #adminモデルにて不要なルーティングが実行できないように処理を記載してます。
 
  devise_for :customers
