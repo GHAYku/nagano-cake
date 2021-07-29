@@ -1,4 +1,4 @@
-<%= form_with model: @customer, url: public_customer_path, local:true do |f| %>
+<%= form_with model: @customer, url: customers_path, local:true do |f| %>
 <div class="container">
  <div class="row">
   <div class="col-10 mx-auto">
@@ -8,7 +8,7 @@
     <div class="col-2 text">
      <%= f.label "名前" %>
     </div>
-    <div class="col-3 text">
+    <div class="offset-1 col-3 text">
      <%= f.text_field :last_name,class: "w-100" %>
     </div>
     <div class="col-3 text">
@@ -20,7 +20,7 @@
     <div class="col-2 text">
      <%= f.label :last_name_kana, "フリガナ" %>
     </div>
-    <div class="col-3 text">
+    <div class="offset-1 col-3 text">
      <%= f.text_field :last_name_kana,class: "w-100" %>
     </div>
     <div class="col-3 text">
