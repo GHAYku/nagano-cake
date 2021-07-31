@@ -4,7 +4,7 @@
        <div class="my-0 mr-md-auto"><%= image_tag 'logo.PNG', size: "300x75" %></div>
         <nav class="my-2 my-md-0 mr-md-3">
            <a><%= link_to "About", "/homes/about", class: "btn btn-ligh" %></a>
-           <a><%= link_to "商品一覧", "", class: "btn btn-ligh" %></a>
+           <a><%= link_to "商品一覧", items_path, class: "btn btn-ligh" %></a>
            <a><%= link_to "新規登録", new_customer_registration_path, class: "btn btn-ligh"  %></a>
            <a><%= link_to "ログイン", new_customer_session_path, class: "btn btn-ligh" %></a>
          </nav>

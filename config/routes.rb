@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+
   scope module: :public do
     root 'homes#top'
     get 'homes/about'
@@ -8,8 +9,10 @@ Rails.application.routes.draw do
       get 'secession'
       patch 'withdrawal'
       end
-    resource :addresses,only: [:edit,:update,:index]
     end
+    resources :addresses,only: [:edit,:update,:index,:create,:destroy]
+    resources :items,only: [:show,:index]
+    resources :cart_items,only: [:create,:index,:destroy,:update]
   end
  devise_for :customers, :controllers => {
   :registrations => 'public/customers/registrations',

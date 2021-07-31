@@ -1,2 +1,7 @@
-<h1>Public::Addresses#edit</h1>
-<p>Find me in app/views/public/addresses/edit.html.erb</p>
+<div class="container">
+ <h3 class="offset-lg-1 title-sub-text m-5">配送先編集</h3>
+  <%= form_with model: @address, url: address_path(@address.id),local:true do |f| %>
+    <%= render 'address_form', f: f %>
+  <%= f.submit "変更内容を保存", class: "btn btn-success offset-10"%>
+  <% end %>
+</div>

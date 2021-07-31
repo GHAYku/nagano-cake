@@ -1,1 +1,35 @@
+<div class="container">
+ <h3 class="offset-lg-1 title-sub-text m-5">配送先登録/一覧</h3>
+  <%= form_with model: @address, url: addresses_path, local:true do |f| %>
+    <%= render 'address_form', f: f %>
+  <%= f.submit "新規登録", class: "btn btn-success offset-10"%>
+  <% end %>
 
+  <div class="row my-5">
+    <div class="col-10">
+  <table class="table border table-hover text-size">
+   <thead>
+    <tr class="table-active">
+     <th>郵便番号</th>
+     <th>住所</th>
+     <th>宛名</th>
+     <th></th>
+    </tr>
+   </thead>
+   <% @addresses.each do |address1| %>
+   <tbody>
+    <tr>
+     <td><%= address1.postal_code %></td>
+     <td><%= address1.address%></td>
+     <td><%= address1.name %></td>
+     <td  class="col-3">
+      <%= link_to "編集する", edit_address_path(address1.id), class: "btn btn-success"%>
+      <%= link_to "削除する", address_path(address1.id), method: :delete,class: "btn btn-danger"%>
+     </td>
+    </tr>
+   </tbody>
+   <% end %>
+  </table>
+  </div>
+ </div>
+</div>
