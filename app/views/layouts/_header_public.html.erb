@@ -5,7 +5,7 @@
         <nav class="my-2 my-md-0 mr-md-3">
            <a><%= link_to "マイページ", customers_path, class: "btn btn-ligh" %></a>
            <a><%= link_to "商品一覧", items_path, class: "btn btn-ligh" %></a>
-           <a><%= link_to "カート", "", class: "btn btn-ligh"  %></a>
+           <a><%= link_to "カート", cart_items_path, class: "btn btn-ligh"  %></a>
            <a><%= link_to "ログアウト", destroy_customer_session_path, method: :delete,class: "btn btn-ligh" %></a>
          </nav>
         </div>

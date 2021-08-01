@@ -10,9 +10,11 @@
    <% if @item.is_active == false %>
     <h3 class="mb-5 text">売り切れ</h3>
    <% elsif customer_signed_in? %>
-    <%= form_with model: @cart_item, url: cart_item_path(current_customer.id),local:true do |f| %>
+    <%= form_with model: @cart_item, url: cart_items_path,local:true do |f| %>
     <div class="mt-5">
-     <%= f.select :quantity, [[1,1],[2,2],[3,3],[4,4],[5,5]], include_blank: "個数選択" %>
+     <%= f.select :amount, [[1,1],[2,2],[3,3],[4,4],[5,5]], include_blank: "個数選択" %>
+     <%= f.hidden_field :customer_id, :value => current_customer.id %>
+     <%= f.hidden_field :item_id, :value => @item.id %>
      <%= f.submit "カートに入れる", class: "btn btn-success offset-10"%>
     </div>
     <% end %>

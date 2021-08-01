@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-
   scope module: :public do
     root 'homes#top'
     get 'homes/about'
@@ -12,7 +11,11 @@ Rails.application.routes.draw do
     end
     resources :addresses,only: [:edit,:update,:index,:create,:destroy]
     resources :items,only: [:show,:index]
+    delete "cart_items/destroy_all"
     resources :cart_items,only: [:create,:index,:destroy,:update]
+    resources :orders,only: [:new, :index, :show]
+    post 'orders/confirm'
+    get 'orders/thanks'
   end
  devise_for :customers, :controllers => {
   :registrations => 'public/customers/registrations',
