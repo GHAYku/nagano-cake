@@ -1,13 +1,11 @@
 class Public::CartItemsController < ApplicationController
   def index
     @cart_items = current_customer.cart_items
-    @total = @cart_items.inject(0) { |sum, item| sum + sum_of_price }
+    @total = @cart_items.inject(0) { |sum, item| sum + item.sub_total }
   end
 
   def create
    cart_item = CartItem.new(cart_item_params)
-   #cart_item.customer_id = CartItem.find_by(customer_id: params[:cart_item][:customer_id])
-   #cart_item.item_id = CartItem.find_by(item_id: params[:cart_item][:item_id])
    cart_item.save
    flash[:notice]="商品をカートに入れました"
    redirect_to cart_items_path

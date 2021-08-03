@@ -20,7 +20,7 @@
   <div class="m-5">
    <input type="radio", name="select_address", value="2">
    <%= f.label "登録済住所から選択" %>
-　 <%= f.collection_select(:address_id, @addresses, :id, :address_select) %>
+　 <%= f.collection_select :select_address, @addresses, :id, :address_select %>
   </div>
 
   <div class="m-5">

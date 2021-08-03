@@ -4,7 +4,7 @@
     <title>NaganoCake</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    
+
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,18 +21,17 @@
       <% else %>
         <%= render 'layouts/header_logout' %>
       <% end %>
+      <%= render 'layouts/flash'%>
     </header>
  <%= yield %>
 
-    </main>
-    <footer>
-     <div class='container mt-5'>
-  	  <div class='row'>
-    　 <div class='mx-auto'>
-        <p>CopyRight Infratop.inc</p>
-    　 </div>
+<footer class="m-5 border-top" style="background-color: #ffffff;">
+      <div class="row">
+        <div class="offset-5 mt-5">
+          <p>© Copyright NaganoCake.inc</p>
+        </div>
       </div>
-     </div>
     </footer>
   </body>
+</html>
 

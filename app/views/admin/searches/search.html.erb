@@ -1,0 +1,43 @@
+<div class="container">
+ <div class="row m-4">
+  <div class="col-9 offset-1">
+   <h3 style="display:inline">商品検索結果</h3>
+    <h6 style="display:inline;">(全<%= @records_item.count %>件)</h6>
+     <% if @records_item.empty? %>
+      <div class="text-center m-3">
+       <p style="color:red;">該当する商品はありません</p></div>
+     <% end %>
+    <div class="d-flex flex-row flex-wrap">
+     <% @records_item.each do |data| %>
+      <div class="item-image col-4 card m-5">
+       <%= link_to item_path(data.id) do %>
+       <%= attachment_image_tag data, :image, format: 'jpeg', fallback: "no_image.jpg",size:"200x200" %>
+       <% end %><br>
+       <%=  data.name %><br>
+      ￥<%= data.taxin_price.round.to_s(:delimited) %>
+      </div>
+     <% end %>
+    </div>
+   </div>
+  </div>
+ </div>
+
+<div class="container">
+ <div class="row mt-4">
+  <div class="col-9 offset-1">
+   <h3 style="display:inline">会員名検索結果</h3>
+    <h6 style="display:inline;">(全<%= @record_customers.count %>件)</h6>
+     <% if @record_customers.empty? %>
+      <div class="text-center m-3">
+       <p style="color:red;">該当する会員名はありません</p></div>
+     <% end %>
+     <div class="d-flex flex-row flex-wrap">
+      <% @record_customers.each do |data| %>
+       <div class="item-image col-3">
+        <%= link_to data.name, admin_customer(data.id) %>
+      <% end %>
+       </div>
+     </div>
+  </div>
+ </div>
+</div>

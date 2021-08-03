@@ -19,7 +19,11 @@
     </div>
     <% end %>
    <% else %>
-    <%= link_to "Sign up", new_customer_registration_path, class:'btn btn-success' %>
+   <div class="m-5">
+    購入には<%= link_to "新規会員登録", new_customer_registration_path %>が必要です。</br>
+    会員の方は<%= link_to "こちら", new_customer_registration_path %>からログイン。
+   </div>
    <% end %>
   </div>
-</container>
+</div>
+</div>

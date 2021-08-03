@@ -1,4 +1,16 @@
-  <div class="container">
+
+
+<div class="container">
+ 	<% if @cart_items.empty? %>
+
+		<div class = "row justify-content-center">
+			<div class= "col-4 m-5 ">
+				<h1 class="text">カートは空です。</h1>
+				商品一覧は<%= link_to "こちら", items_path %>になります。
+			</div>
+		</div>
+</div>
+	<% else %>
    <div class="row">
      <h2 class="col-2">商品一覧</h2>
      <div class="col-2 offset-8">
@@ -32,7 +44,7 @@
 						      <% f.text_field :item_id, :value => cart_item.item.id %>
 					      <% end %>
           </td>
-          <td><%= number_to_currency(cart_item.sub_total:format => "%n%u", :unit => "円", :precision => 0) %></td>
+          <td><%= number_to_currency(cart_item.sub_total, :format => "%n%u", :unit => "円", :precision => 0) %></td>
           <td><%= link_to "削除", cart_item_path(cart_item), class: "btn btn-danger", method: :delete %></td>
          </tr>
         <% end %>
@@ -57,3 +69,4 @@
      </div>
   </div>
  </div>
+<% end %>

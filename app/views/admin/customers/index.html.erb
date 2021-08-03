@@ -14,19 +14,19 @@
         </tr>
        </thead>
        <tbody>
-        <% @customers.each do |customer| %>
+        <% @customers.each do |customers| %>
         <tr class="light-text">
-         <td><%= customer.id %></td>
+         <td><%= customers.id %></td>
          <td class="text">
-          <%= link_to admin_customer_path do%>
-           <%= customer.last_name + customer.first_name %>
+          <%= link_to admin_customer_path(customers.id) do%>
+           <%= customers.last_name + customers.first_name %>
           <% end %>
          </td>
-         <td><%= customer.email %></td>
+         <td><%= customers.email %></td>
          <td>
-           <% if customer.is_deleted == true %>
+           <% if customers.is_active == true %>
             <span class="text-success text">有効</span>
-           <% else customer.is_deleted == false %>
+           <% else customers.is_active == false %>
             <span>退会</span>
            <% end %>
          </td>

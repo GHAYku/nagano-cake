@@ -1,10 +1,15 @@
-  <div class="container">
+<div class="container">
     <div class="my-5">
-     <h2>商品一覧</h2>
+    <% if params[:order] ==  'seatch' %>
+     <h2><%= @genres.name %>一覧<span>(<%= @items.total_count %>件)</span></h2>
     </div>
+    <% else %>
+     <h2>商品一覧<span>(<%= @items.total_count %>件)</span></h2>
+    </div>
+    <% end %>
    <div class="row">
     <% @items.each do |item| %>
-     <div class="col-m-3 mb-5 mx-auto card shadow">
+     <div class="col-m-2 mb-5 mx-auto card shadow">
        <div class="image-link">
         <%= link_to item_path(item.id) do %>
          <%= attachment_image_tag item, :image, :fill, 200, 200, fallback: "no_image.jpg", size: "250x250" %>

@@ -3,7 +3,7 @@
      <h2 class="col-2">注文情報確認</h2>
     </div>
     <div class="row">
-     <div class="col-12 mx-auto">
+     <div class="col-8">
       <table class="table table-hover">
        <thead>
         <tr class="table-active">
@@ -29,28 +29,46 @@
         <% end %>
        </tbody>
      </table>
-     <table class="table table-hover">
+    </div>
+    <div class="col-3">
+     <table class="table table-hover table-bordered">
       <tr>
-       <td>送料</td>
+       <td class="table-active">送料</td>
        <td><%= number_to_currency(800, :format => "%n%u", :unit => "円", :precision => 0) %></td>
       </tr>
       <tr>
-       <td>商品合計</td>
+       <td class="table-active">商品合計</td>
        <td><%= number_to_currency(@total.round.to_s(:delimited),:format => "%n%u", :unit => "円", :precision => 0)%></td>
       </tr>
       <tr>
-        <td>請求金額</td>
-        <td><%= number_to_currency(@total.round.to_s(:delimited), :format => "%n%u", :unit => "円", :precision => 0) %></td>
+        <td class="table-active">請求金額</td>
+        <td><%= number_to_currency(@totals.round.to_s(:delimited), :format => "%n%u", :unit => "円", :precision => 0) %></td>
       </tr>
      </table>
     </div>
    </div>
-   <div class="row">
-     <p>支払い方法</p>
-     <%= @order.payment_method %>
-   </div>
-   <div class="ml-5">
-     <p>お届け先</p>
-     〒<%= @order.postal_code %>　<%= @order.address %></br>
-			<%= @order.name %>
-  </div>
+  <div class="row m-5">
+   <h4 class="col-mt-3">支払い方法</h4>
+			 <div class="col-3 ml-5 light-text">
+					<%= @order.payment_method %>
+				</div>
+		</div>
+		<div class="row m-5">
+			<h4 class="col-mt-3">お届け先</h4>
+			  <div class="col-9 ml-5 light-text">
+					〒<%= @order.postal_code %>　<%= @order.address %></br>
+					　<%= @order.name %></br>
+				 </div>
+		</div>
+		<%= form_with model: @order, url: orders_path, method: :POST, local: true do |f| %>
+				<%= f.hidden_field :customer_id, :value => current_customer.id %>
+				<%= f.hidden_field :payment_method, :value => @order.payment_method %>
+				<%= f.hidden_field :total_payment, :value => number_to_currency(@totals.round.to_s(:delimited), :format => "%n%u", :unit => "円", :precision => 0) %>
+				<%= f.hidden_field :postal_code, :value => @order.postal_code %>
+				<%= f.hidden_field :address, :value => @order.address %>
+				<%= f.hidden_field :name, :value => @order.name %>
+			 <div class="mt-4 offset-4">
+					<%= f.submit "注文を確定する", class: "btn btn-lg btn-danger ml-auto" %>
+				</div>
+			<% end %>
+ </div>

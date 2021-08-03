@@ -5,7 +5,7 @@ class Customer < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   def active_for_authentication?
-   super && (self.is_active == true)
+   super && (self.is_active == false)
   end
 
   has_many :cart_items, dependent: :destroy
@@ -21,4 +21,7 @@ class Customer < ApplicationRecord
   validates :address, presence: true
   validates :phone_number, presence: true, format: { with: /\A[0-9]+\z/, message: "は半角数字のみで入力して下さい" }
 
+   def self.search_for(content)
+    Customer.where('last_name_kana LIKE ?', '%'+content+'%')
+   end
 end
