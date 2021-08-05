@@ -28,12 +28,11 @@ Rails.application.routes.draw do
   }
  #adminモデルにて不要なルーティングが実行できないように処理を記載してます。
   namespace :admin do
-    get 'homes/top'
     resources :genres, only:[:index, :update, :create, :edit]
     resources :items, only: [:new, :create, :index, :show, :edit, :update]
     resources :items, only: [:new, :create, :index, :show, :edit, :update]
     resources :customers, only: [:index, :show, :edit, :update]
-    get 'admin' => 'homes#top', as: 'home'
+    root 'homes#top', as: 'home'
     resources :orders, only: [:show,:update]
     resources :order_details, only: [:update]
     get '/search', to: 'searches#search'

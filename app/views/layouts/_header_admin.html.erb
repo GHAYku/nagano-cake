@@ -1,14 +1,16 @@
 
       <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3  border-bottom shadow-sm">
-       <div class="my-0 mr-md-auto"><%= image_tag 'logo.PNG', size: "300x75" %></div>
+       <div class="my-0 mr-md-auto">
+        <a href = "/"><%= image_tag 'logo.PNG', size: "300x75" %></a>
+       </div>
        <div class="col mt-5 offset-5"><%=  "管理者ログイン中" %></div>
         <nav class="my-2 my-md-0 mr-md-3">
            <a><%= link_to "商品一覧", admin_items_path, class: "btn btn-default" %></a>
            <a><%= link_to "会員一覧", admin_customers_path, class: "btn btn-default" %></a>
-           <a><%= link_to "注文履歴一覧", admin_home_path(order: 'all'), class: "btn btn-default"  %></a>
+           <a><%= link_to "注文履歴一覧", admin_home_path, class: "btn btn-default"  %></a>
            <a><%= link_to "ジャンル一覧", admin_genres_path, class: "btn btn-default"  %></a>
            <a><%= link_to "ログアウト", destroy_admin_session_path, method: :delete,class: "btn btn-default" %></a>
-            <div class="serch_form offset-7">
+            <div class="serch_form offset-7 mt-2">
             <%= form_with url: admin_search_path,method: :get, local: true do |f| %>
              <%= f.text_field :content,placeholder:"Search"%>
              <%= f.submit'検索'%>

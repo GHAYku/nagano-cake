@@ -11,9 +11,9 @@
 		</div>
 </div>
 	<% else %>
-   <div class="row">
-     <h2 class="col-2">商品一覧</h2>
-     <div class="col-2 offset-8">
+   <div class="row mb-3">
+     <h3 class="col-3 title-text">ショッピングカート</h3>
+     <div class="col-2 offset-7">
       <%= link_to "カートを空にする", cart_items_destroy_all_path, method: :delete,class:'btn btn-danger'%>
      </div>
     </div>
@@ -54,7 +54,7 @@
    </div>
     <div class = "row">
      <div class="col-2 mt-5">
-      <%= link_to "買い物を続ける", root_path, class:'btn btn-success '%>
+      <%= link_to "買い物を続ける", root_path, class:'btn btn-primary '%>
      </div>
 			  <div class = "offset-9 col-3">
 				  <table class="table table-bordered">

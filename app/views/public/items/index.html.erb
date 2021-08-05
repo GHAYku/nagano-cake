@@ -1,10 +1,10 @@
 <div class="container">
     <div class="my-5">
     <% if params[:order] ==  'seatch' %>
-     <h2><%= @genres.name %>一覧<span>(<%= @items.total_count %>件)</span></h2>
+     <h2><%= @genres.name %>一覧<span class="itemcount">(<%= @items.total_count %>件)</span></h2>
     </div>
     <% else %>
-     <h2>商品一覧<span>(<%= @items.total_count %>件)</span></h2>
+     <h2>商品一覧<span class="itemcount">(<%= @items.total_count %>件)</span></h2>
     </div>
     <% end %>
    <div class="row">

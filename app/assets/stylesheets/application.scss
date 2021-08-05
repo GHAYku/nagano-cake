@@ -30,7 +30,42 @@ header {font-family: 'Yomogi', cursive;}
 }
 
 .toptext{
-  font-family: 'Yomogi', cursive;
   font-size: 20px;
+  font-weight: 900;
+}
+
+// .field_with_errors {
+  // padding: 2px;
+  // background-color: #F6BABC;
+  // display: contents;
+.field_with_errors {
+  display: contents;
+  background-color: #F6BABC;
+  input {
+    border: 2px solid #F6BABC;
+  }
+  textarea {
+    border: 2px solid #F6BABC;
+  }
+  select {
+    border: 2px solid #F6BABC;
+  }
+  .radio {
+    border: 2px solid #F6BABC;
+  }
+}
+
+.error {
+  color:#F6BABC;
+  font-size: 12px;
+}
+
+.title-text {
+  background-color :#e8e8e8;
+  display: table;
+}
+
+.abouttext {
+    font-size: 100px;
   font-weight: 900;
 }

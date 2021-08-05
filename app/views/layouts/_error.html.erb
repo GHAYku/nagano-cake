@@ -1,13 +1,8 @@
 <% if model.errors.any? %>
-  <div class="alert alert-danger alert-dismissible mt-4">
-    <h5 class="alert-heading">
-      <%= model.errors.count %> 件修正して下さい:
+  <div class="alert alert-danger alert-dismissible mt-4 ">
+    <h5 class="alert-heading offset-5">
+      <%= model.errors.count %> 件のフォームの入力をしてください。
     </h5>
-    <ul class="mb-0">
-      <% model.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-    </ul>
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
       <span aria-hidden="true">&times;</span>
     </button>

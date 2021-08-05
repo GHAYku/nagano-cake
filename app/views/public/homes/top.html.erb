@@ -1,6 +1,5 @@
 
 <div class="container">
-
  <div class=" row top-comment mt-5 top top_image">
   <div class="col-3">
    <%= render 'public/items/item_seatch'%>
@@ -13,24 +12,22 @@
    会員でない方も商品の閲覧はできますが、</br>
    購入には会員登録が必要になります。
   </div>
-
  </div>
- <div class="main-container">
-    <div class="my-5">
-      <h2>新着商品</h2>
-    </div>
-    <div class="container">
-      <div class="main-box">
-        <div class="row">
-          <% @items.first(4).each do |item| %>
-            <div class="col-m-3 mx-auto card ">
-              <div class="image-link"><%= link_to "" do %>
-              <%= attachment_image_tag item, :image, :fill, 200, 200, fallback: "no_image.jpg", size: "250x250" %></div>
-              <% end %>
-              <h5 class="text pt-5 text-center"><%= item.name %></h5>
-              <p class="text text-center">￥<%= item.price.to_s(:delimited) %></p>
-            </div>
-          <% end %>
-        </div>
+  <div class="my-5">
+   <h2>新着商品</h2>
+  </div>
+  <div class="row">
+   <% @items.first(4).each do |itemss| %>
+    <div class="col-m-3 mx-auto card ">
+     <div class="image-link">
+       <%= link_to item_path(itemss.id) do %>
+        <%=attachment_image_tag itemss, :image, :fill, 200, 200, fallback: "no_image.jpg", size: "250x250" %>
+       <% end%>
       </div>
-</div>
+      <h5 class="text pt-5 text-center"><%= itemss.name %></h5>
+      <p class="text text-center">￥<%= itemss.price.to_s(:delimited) %></p>
+    </div>
+   <% end %>
+   <%= link_to "すべての商品を見る >" ,items_path, class: "offset-10 mt-5" %>
+  </div>
+ </div>

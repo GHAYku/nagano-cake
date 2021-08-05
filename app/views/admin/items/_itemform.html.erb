@@ -4,27 +4,30 @@
 </div>
 <div class="row mt-2 ">
   <label class="col-md-2 mr-2">商品名</label>
-  <%= f.text_field :name, class:"col-md-3" %>
+  <%= f.text_field :name, placeholder: "商品名",class:"col-md-3" %>
 </div>
 <div class="row mt-3">
   <label class="col-md-2 mr-2">商品説明<br><br><br><br></label>
-  <%= f.text_area :introduction, class:"col-md-3" %>
+  <%= f.text_area :introduction, placeholder: "ここに説明文を記述します。",class:"col-md-3" %>
 </div>
 <div class="row mt-2">
   <label class="col-md-2 mr-2">ジャンル</label>
   <%= f.collection_select :genre_id, Genre.all, :id, :name, include_blank: "選択して下さい", class:"col-md-4" %>
 </div>
 <div class="row mt-2">
-  <label class="col-md-2 mr-2">価格</label>
-  <%= f.text_field :price, class:"col-md-3 mr-1" %> 円
+  <label class="col-md-2 mr-2">税抜価格</label>
+  <%= f.text_field :price, autofocus: true, placeholder: 1000,class:"col-md-3 mr-1" %> 円
 </div>
 <div class="row mt-2">
   <label class="col-md-2 mr-2">ステータス</label>
   <div class="col-md-3">
     <%= f.radio_button :is_active, true %>
-    <label>販売中</label>
+    <label class="radio">販売中</label>
     <%= f.radio_button :is_active, false %>
-    <label>販売停止中</label>
+    <label class="radio">販売停止中</label>
+    <% if @item.errors.any? %>
+     <p class="error">選択してください</p>
+    <% end %>
   </div>
 </div>
 
