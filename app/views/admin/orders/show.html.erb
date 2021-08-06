@@ -39,7 +39,7 @@
    </div>
    <div class="col-3">
    <%= form_with model: @order, url: admin_order_path, local:true do |f| %>
-    <%= f.select :status, [["入金待ち", "入金待ち"], ["入金確認","入金確認"],["製作中","製作中"],["発送準備中","発送準備中"],["発送済み","発送済み"]]%>
+    <%= f.select :status, [["入金待ち", "入金待ち"], ["入金確認","入金確認"],["製作中","製作中"],["発送待ち","発送待ち"],["発送済","発送済"]]%>
     <%= f.submit "更新", class: "btn btn-success btn-sm" %>
    <% end %>
    </div>

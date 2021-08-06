@@ -13,7 +13,7 @@ class OrderDetail < ApplicationRecord
     if order_details.any? {|order_details| order_details.making_status == "製作中"} == true
       self.order.update(status: "製作中")
     elsif order_details.all? {|order_details| order_details.making_status == "製作完了"} == true
-      self.order.update(status: "発送準備中") # 注文ステータスを発送準備中に変更する
+      self.order.update(status: "発送待ち") 
     end
   end
 end
