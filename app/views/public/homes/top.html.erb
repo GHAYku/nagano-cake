@@ -17,7 +17,7 @@
    <h2>新着商品</h2>
   </div>
   <div class="row">
-   <% @items.first(4).each do |itemss| %>
+   <% @items.last(4).each do |itemss| %>
     <div class="col-m-3 mx-auto card ">
      <div class="image-link">
        <%= link_to item_path(itemss.id) do %>
